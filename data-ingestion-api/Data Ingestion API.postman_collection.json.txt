@@ -1,0 +1,54 @@
+{
+  "info": {
+    "_postman_id": "e17023df-df31-49f9-b8c5-abc123456789",
+    "name": "Data Ingestion API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Ingest IDs",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"ids\": [1, 2, 3, 4, 5],\n  \"priority\": \"MEDIUM\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:5000/ingest",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "5000",
+          "path": ["ingest"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Check Ingestion Status",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:5000/status/{{ingestion_id}}",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "5000",
+          "path": ["status", "{{ingestion_id}}"]
+        }
+      },
+      "response": []
+    }
+  ],
+  "variable": [
+    {
+      "key": "ingestion_id",
+      "value": "abc123"
+    }
+  ]
+}
